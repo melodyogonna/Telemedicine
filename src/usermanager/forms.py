@@ -7,10 +7,7 @@ from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.forms import (AuthenticationForm, UserChangeForm,
                                        UserCreationForm)
 
-from django.contrib.sites.shortcuts import get_current_site
-from django.utils.text import capfirst
 from django.utils.translation import gettext, gettext_lazy as _
-from django.contrib.sites.shortcuts import get_current_site
 
 
 # User defined modules
@@ -23,7 +20,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ['first_name', 'last_name', 'email', 'phone_no']
+        fields = ['first_name', 'last_name', 'email']
 
     def save(self):
         user = super().save()
