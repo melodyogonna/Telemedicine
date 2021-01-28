@@ -11,3 +11,4 @@ class Appointments(models.Model):
     patient = models.ForeignKey(USER, related_name="patient", on_delete=models.CASCADE)
     doctor = models.ForeignKey(USER, related_name="doctor", on_delete=models.CASCADE)
     appointment_date = models.DateTimeField()
+
