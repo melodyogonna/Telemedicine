@@ -9,9 +9,7 @@ class BookDoctor(views.APIView):
     """A view to let patients book a doctor"""
 
     def post(self, request: views.Request):
-        
 
         data = AppointmentsSerializer(request.data)
         data.save()
-        print(data)
         return views.Response(data.data)

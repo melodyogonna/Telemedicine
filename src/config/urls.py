@@ -20,11 +20,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from core.routers import urlpatterns as api_urls
+from core.routers import urlpatterns as core_api_urls
+from usermanager.router import urlpatterns as usermanager_api_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/v1/", include(api_urls)),
+    path("api/v1/", include(core_api_urls)),
+    path("api/v1/", include(usermanager_api_urls)),
     path("api/vi/login/", TokenObtainPairView.as_view(), name="api-login"),
     path("api/vi/token/refresh/", TokenRefreshView.as_view(), name="api-refresh-token"),
 ]
