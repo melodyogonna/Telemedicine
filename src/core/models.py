@@ -11,4 +11,12 @@ class Appointments(models.Model):
     patient = models.ForeignKey(USER, related_name="patient", on_delete=models.CASCADE)
     doctor = models.ForeignKey(USER, related_name="doctor", on_delete=models.CASCADE)
     appointment_date = models.DateTimeField()
+    created_on = models.DateTimeField(auto_now_add=True)
 
+
+class BlockedDays(models.Model):
+    doctor = models.ForeignKey(
+        USER, related_name="doctor_blocked_day", on_delete=models.CASCADE
+    )
+    blocked_day = models.DateField()
+    created_on = models.DateTimeField(auto_now_add=True)
